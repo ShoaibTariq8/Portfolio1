@@ -1,0 +1,287 @@
+body{
+    font-family:sans-serif;
+    background-color: #1a1e23;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+h1, h2, h3 {
+ 
+    padding-bottom: 10px;
+    border-bottom: 4px #62e3ff solid;
+    display: inline-block;
+    margin-bottom: 1em;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+p{
+    line-height: 1.7em;
+    max-width: 500px;
+    margin-bottom: 1.5em;
+}
+ 
+.mega-card {
+    background-color: #293039;
+    width: 100%;
+    max-width: 700px;
+    border-radius: 10px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.details {
+
+    padding: 2em;
+    height: 400px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4em;
+    overflow-y: scroll;
+    scrollbar-color: #62e3ff #40454d; /* thumb color and track color */
+    scrollbar-width: thin;
+
+}
+
+.profile-img {
+    width: 15em;
+    height: 15em;
+    object-fit: cover;
+    border-radius: 50%;
+
+}
+ .icons, .skills, .social {
+    margin-top: 2em;
+ }
+.education{
+    margin-top: 4em;
+}
+
+.icons img{
+
+    width: 3em;
+}
+.skills ul{
+    padding-left: 1em;
+
+}
+
+.skills li{
+    font-size: 1.1em;
+    margin-bottom: 1em;
+    font-weight: 500;
+
+}
+
+.skills li::marker{
+    color: #62e3ff;
+}
+
+.education p {
+    margin-bottom: 0.5em;
+}
+
+.year{
+     color: #62e3ff;
+}
+.social a {
+    color:#62e3ff;
+    font-size: 1.5em;
+    margin-right: 0.5em;
+    transition: 200ms;
+}
+
+.social a:hover{
+
+    color:#fff;
+}
+
+/*scrollbar*/
+
+.details::-webkit-scrollbar{
+    width: 10px;
+}
+
+/* track*/
+.details::-webkit-scrollbar-track{
+    background: #40454d;
+}
+.details::-webkit-scrollbar-thumb{
+    background: #62e3ff;
+    border-radius: 10px;
+}
+
+.details::-webkit-scrollbar-thumb:hover{
+
+    background: #4fb5cc;
+
+}
+
+.panel-1, .panel-2 {
+    position: absolute;
+    z-index: 1;
+    width: 58%;
+    height: 139%;
+    transform: rotate(22deg);
+    transition: 
+            600ms cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+.panel-1{
+    background-color: #20262e;
+    top: -7em;
+    left: -3.6em;
+}
+
+.panel-1> div {
+
+    padding: 9em 6em 0em 4.5em;
+    height: 85%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    transform: rotate(-22deg);
+}
+
+
+.panel-2 {
+ 
+    bottom: -7em;
+    right: -3.6em;
+    overflow: hidden;
+}
+
+.panel-2 img {
+
+    position: absolute;
+    top: 1em;
+    left: -6em;
+    width: 128%;
+    height: 82%;
+    object-fit: cover;
+    transform: rotate(-22deg);
+
+}
+
+.mega-card button {
+
+    border: none;
+    background-color: #62e3ff;
+    width: 6em;
+    height: 6em;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(50%, 50%);
+    z-index: 2;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, .2);
+    transition: 200ms;
+    cursor: pointer;
+}
+
+.mega-card button span{
+
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.mega-card button:hover{
+    background-color: #4fb5cc;
+    transform: scale(1.1) translate(50%, 50%);
+
+}
+
+.mega-card button span:nth-child(1) {
+    width: 0.5em;
+    height: 2.6em;
+}
+.mega-card button span:nth-child(2) {
+    width: 0.5em;
+    height: 2.6em;
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.panel-1-open { left: -33em;}
+.panel-2-open { right: -33em;}
+.mega-card .btn-open{
+    left: unset;
+    right: 1em;
+    bottom: 0;
+    transform: rotate(45deg) scale(0.7);
+}
+
+@media screen and (max-width: 750px) {
+    .details{
+        grid-template-columns: 1fr;
+        height: 500px;
+    }
+    .panel-1, .panel-2{
+        width: 120%;
+    }
+    .panel-1{
+        top: -4em;
+        left: 50%;
+        height: 64%;
+        transform: translateX(-50%) rotate(10deg);
+
+    }
+    .panel-1 > div {
+        padding: 6em 13% 0em 13%;
+        height: 85%;
+        transform: rotate(-10deg);
+    }
+    .panel-1 .social {
+        align-self: flex-end;
+    }
+    .panel-2{
+        height: 60%;
+        bottom: -3.5em;
+        right: 50%;
+        transform: translateX(50%) rotate(10deg);
+
+    }
+    .panel-2 img {
+        top: -5em;
+        left: 50%;
+        height: 120%;
+        transform: translateX(-50%) rotate(-10deg);
+    }
+    .mega-card button {
+        width: 5em;
+        height: 5em;
+    } 
+
+    .panel-1-open{top: -33em;}
+    .panel-2-open {bottom: -33em;}
+}
+
+@media screen and (max-width : 400px) {
+    
+    .panel-1 .social{
+        align-self: flex-start;
+        margin-top: -3em;
+    }
+    .panel-1 h1{
+        margin-bottom: 0.5em;
+    }
+    .profile-img {
+        width: 10em;
+        height: 10em;
+    }
+}
